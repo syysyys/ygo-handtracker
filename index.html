@@ -30,7 +30,30 @@ h1 {
 #buttonArea {
     padding: 10px;
     background: #222;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
     overflow-y: auto;
+}
+button {
+    padding: 18px 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    background: #444;
+    color: white;
+}
+#controlArea {
+    padding: 10px;
+    background: #111;
+}
+
+.reset {
+    background: crimson;
+    font-weight: bold;
+}
+button:active {
+    transform: scale(0.96);
 }
 .reset {
     background: crimson;
@@ -130,9 +153,12 @@ createButtons();
 
 <br>
 
-<button class="reset" onclick="resetHand()">リセット</button>
+<div id="controlArea">
+    <button class="reset" onclick="resetHand()">リセット</button>
+</div>
 
 </body>
 </html>
+
 
 
