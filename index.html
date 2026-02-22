@@ -81,7 +81,7 @@ function render() {
 const list = document.getElementById("handList");
 list.innerHTML = "";
 
-```
+
 for (let card in hand) {
     const div = document.createElement("div");
     div.className = "card";
@@ -89,7 +89,7 @@ for (let card in hand) {
     <button onclick="removeCard('${card}')">−</button>`;
     list.appendChild(div);
 }
-```
+
 
 }
 </script>
@@ -97,3 +97,4 @@ for (let card in hand) {
 </body>
 
 </html>
+
