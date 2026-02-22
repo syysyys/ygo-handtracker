@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手札トラッカー</title>
+<style>
+body {
+font-family: sans-serif;
+text-align: center;
+background: #111;
+color: white;
+}
+h1 {
+margin-top: 20px;
+}
+#handList {
+margin: 20px;
+font-size: 20px;
+}
+.card {
+margin: 10px;
+padding: 10px;
+border: 1px solid white;
+}
+button {
+margin: 5px;
+padding: 15px;
+font-size: 16px;
+}
+.reset {
+background: crimson;
+color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>相手の確定手札</h1>
+
+<div id="handList"></div>
+
+<div>
+<button onclick="addCard('うらら')">うらら</button>
+<button onclick="addCard('増G')">増G</button>
+<button onclick="addCard('ニビル')">ニビル</button>
+</div>
+
+<br>
+
+<button class="reset" onclick="resetHand()">リセット</button>
+
+<script>
+let hand = {};
+
+function addCard(name) {
+if (hand[name]) {
+hand[name]++;
+} else {
+hand[name] = 1;
+}
+render();
+}
+
+function removeCard(name) {
+if (hand[name]) {
+hand[name]--;
+if (hand[name] <= 0) {
+delete hand[name];
+}
+render();
+}
+}
+
+function resetHand() {
+hand = {};
+render();
+}
+
+function render() {
+const list = document.getElementById("handList");
+list.innerHTML = "";
+
+```
+for (let card in hand) {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `${card} ×${hand[card]}
+    <button onclick="removeCard('${card}')">−</button>`;
+    list.appendChild(div);
+}
+```
+
+}
+</script>
+
+</body>
+</html>
