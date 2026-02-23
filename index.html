@@ -78,7 +78,6 @@ button:active {
 <div id="buttonArea"></div>
 
 <script>
-let selectedCard = null;
 let hand = [];
 let selectedIndex = null;
 
@@ -100,22 +99,22 @@ const cardList = [
   { name: "ヴァリウス", attr: "地" },
   { name: "DDクロウ", attr: "地" },
   { name: "ドロバ", attr: "風" },
-  { name: "増援"},
-  { name: "Stake"},
-  { name: "Start"},
-  { name: "Case of K9"},
-  { name: "強制解除"},
-  { name: "墓穴"},
-  { name: "抹殺"},
-  { name: "スノーデビル"},
-  { name: "三戦"},
+  { name: "増援" },
+  { name: "Stake" },
+  { name: "Start" },
+  { name: "Case of K9" },
+  { name: "強制解除" },
+  { name: "墓穴" },
+  { name: "抹殺" },
+  { name: "スノーデビル" },
+  { name: "三戦" }
 ];
 
 function createButtons() {
     const area = document.getElementById("buttonArea");
     cardList.forEach(card => {
         const btn = document.createElement("button");
-        btn.textContent = card;
+        btn.textContent = card.name;
         btn.onclick = () => addCard(card);
         area.appendChild(btn);
     });
@@ -126,16 +125,6 @@ function addCard(card) {
     render();
 }
 
-function removeCard(name) {
-    if (hand[name]) {
-        hand[name]--;
-        if (hand[name] <= 0) {
-            delete hand[name];
-        }
-        render();
-    }
-}
-
 function resetHand() {
     if (confirm("本当にリセットしますか？")) {
         hand = [];
@@ -144,26 +133,31 @@ function resetHand() {
     }
 }
 
-hand.forEach((card, index) => {
-    const div = document.createElement("div");
-    div.className = "card";
-    div.textContent = card.name;
+function render() {
+    const list = document.getElementById("handList");
+    list.innerHTML = "";
 
-    if (card.attr === "炎") div.style.background = "#7a1f1f";
-    if (card.attr === "闇") div.style.background = "#2e1a47";
-    if (card.attr === "地") div.style.background = "#3b2f1a";
+    hand.forEach((card, index) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.textContent = card.name;
 
-    if (index === selectedIndex) {
-        div.style.outline = "2px solid yellow";
-    }
+        if (card.attr === "炎") div.style.background = "#7a1f1f";
+        if (card.attr === "闇") div.style.background = "#2e1a47";
+        if (card.attr === "地") div.style.background = "#3b2f1a";
 
-    div.onclick = () => {
-        selectedIndex = index;
-        render();
-    };
+        if (index === selectedIndex) {
+            div.style.outline = "2px solid yellow";
+        }
 
-    list.appendChild(div);
-});
+        div.onclick = () => {
+            selectedIndex = index;
+            render();
+        };
+
+        list.appendChild(div);
+    });
+}
 
 function removeSelected() {
     if (selectedIndex !== null) {
@@ -173,8 +167,7 @@ function removeSelected() {
     }
 }
 
-btn.onclick = () => addCard(card);
-btn.textContent = card.name;
+createButtons();
 </script>
 
 
@@ -187,6 +180,7 @@ btn.textContent = card.name;
 
 </body>
 </html>
+
 
 
 
