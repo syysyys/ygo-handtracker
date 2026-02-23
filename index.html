@@ -19,13 +19,21 @@ h1 {
 }
 #handList {
     flex: 1;
-    overflow-y: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
 }
 .card {
-    margin: 10px;
+    min-width: 120px;
     padding: 10px;
-    border: 1px solid white;
+    border-radius: 10px;
+    background: #333;
+    border: 1px solid #666;
+    text-align: center;
+    white-space: nowrap;
 }
 #buttonArea {
     padding: 10px;
@@ -160,6 +168,7 @@ createButtons();
 
 </body>
 </html>
+
 
 
 
