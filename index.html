@@ -83,21 +83,23 @@ let hand = [];
 let selectedIndex = null;
 
 const cardList = [
-  "うらら",
-  "増G",
-  "ニビル",
-  "ラゼン",
-  "マッドラヴ",
-  "ジャオロン",
-  "イヅナ",
-  "ヨクル",
-  "ランタン",
-  "ルプス",
-  "ホーリー・スー",
-  "ノロイ",
-  "プルトン",
-  "ボーガー",
-  "ヴァリウス",
+  { name: "うらら", attr: "炎" },
+  { name: "増G", attr: "地" },
+  { name: "ニビル", attr: "光" },
+  { name: "ラゼン", attr: "炎" },
+  { name: "マッドラヴ", attr: "闇" },
+  { name: "ジャオロン", attr: "炎" },
+  { name: "イヅナ", attr: "地" },
+  { name: "ヨクル", attr: "闇" },
+  { name: "ランタン", attr: "闇" },
+  { name: "ルプス", attr: "地" },
+  { name: "ホーリースー", attr: "地" },
+  { name: "ノロイ", attr: "地" },
+  { name: "プルトン", attr: "炎" },
+  { name: "ボーガー", attr: "闇" },
+  { name: "ヴァリウス", attr: "地" },
+  { name: "DDクロウ", attr: "地" },
+  { name: "ドロバ", attr: "風" },
   "増援",
   "Stake",
   "Start",
@@ -107,7 +109,6 @@ const cardList = [
   "墓穴",
   "抹殺",
   "三戦",
-  "DDクロウ"
 ];
 
 function createButtons() {
@@ -186,6 +187,7 @@ createButtons();
 
 </body>
 </html>
+
 
 
 
