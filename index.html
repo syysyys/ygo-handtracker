@@ -80,6 +80,8 @@ button:active {
 <script>
 let hand = [];
 let selectedIndex = null;
+let hand = [];
+let selectedIndex = null;
 
 const cardList = [
   { name: "うらら", attr: "炎" },
@@ -108,6 +110,13 @@ const cardList = [
   { name: "抹殺" },
   { name: "スノーデビル" },
   { name: "三戦" }
+];
+
+const deckList = [
+  "巳剣",
+  "ヤミー",
+  "ラビュリンス",
+  "K9",
 ];
 
 function createButtons() {
@@ -167,7 +176,30 @@ function removeSelected() {
     }
 }
 
+function toggleDeck(deck) {
+    const index = detectedDecks.indexOf(deck);
+    if (index === -1) {
+        detectedDecks.push(deck);
+    } else {
+        detectedDecks.splice(index, 1);
+    }
+    console.log(detectedDecks);
+}
+
 createButtons();
+createDeckButtons();
+
+function createDeckButtons() {
+    const area = document.getElementById("controlArea");
+
+    deckList.forEach(deck => {
+        const btn = document.createElement("button");
+        btn.textContent = deck;
+        btn.onclick = () => toggleDeck(deck);
+        area.appendChild(btn);
+    });
+}
+
 </script>
 
 
@@ -180,6 +212,7 @@ createButtons();
 
 </body>
 </html>
+
 
 
 
