@@ -77,6 +77,13 @@ button:active {
 
 <div id="buttonArea"></div>
 
+<br>
+
+<div id="controlArea">
+    <button onclick="removeSelected()">消費</button>
+    <button class="reset" onclick="resetHand()">リセット</button>
+</div>
+
 <script>
 let hand = [];
 let selectedIndex = null;
@@ -201,16 +208,10 @@ function createDeckButtons() {
 
 </script>
 
-
-<br>
-
-<div id="controlArea">
-    <button onclick="removeSelected()">消費</button>
-    <button class="reset" onclick="resetHand()">リセット</button>
-</div>
-
+    
 </body>
 </html>
+
 
 
 
