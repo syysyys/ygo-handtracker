@@ -75,6 +75,8 @@ button:active {
 
 <div id="handList"></div>
 
+<div id="deckArea"></div>
+    
 <div id="buttonArea"></div>
 
 <br>
@@ -196,7 +198,7 @@ createButtons();
 createDeckButtons();
 
 function createDeckButtons() {
-    const area = document.getElementById("controlArea");
+    const area = document.getElementById("deckArea");
 
     deckList.forEach(deck => {
         const btn = document.createElement("button");
@@ -211,6 +213,7 @@ function createDeckButtons() {
     
 </body>
 </html>
+
 
 
 
