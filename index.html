@@ -158,12 +158,7 @@ const cardList = [
 
 */
 
-const deckList = [
-  "巳剣",
-  "ヤミー",
-  "ラビュリンス",
-  "K9",
-];
+
 
 function createButtons() {
     const area = document.getElementById("buttonArea");
@@ -236,11 +231,17 @@ createDeckButtons();
 
 function createDeckButtons() {
     const area = document.getElementById("deckArea");
+    area.innerHTML = "";
 
-    deckList.forEach(deck => {
+    Object.keys(cards).forEach(deck => {
         const btn = document.createElement("button");
         btn.textContent = deck;
-        btn.onclick = () => toggleDeck(deck);
+
+        btn.onclick = () => {
+            currentTheme = deck;
+            createButtons();
+        };
+
         area.appendChild(btn);
     });
 }
@@ -250,6 +251,7 @@ function createDeckButtons() {
     
 </body>
 </html>
+
 
 
 
