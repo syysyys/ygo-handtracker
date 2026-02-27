@@ -246,11 +246,17 @@ function createDeckButtons() {
     });
 }
 
+function addToGeneric(card) {
+  if (!cards["汎用"].some(c => c.name === card.name)) {
+    cards["汎用"].push(card);
+  }
+}
 </script>
 
     
 </body>
 </html>
+
 
 
 
